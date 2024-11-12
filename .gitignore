@@ -1,0 +1,4 @@
+mysql_data/*
+app/*
+!docker/apache/logs
+docker/apache/logs/*
