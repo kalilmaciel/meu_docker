@@ -11,12 +11,16 @@ services:
         volumes:
             - ./app:/var/www
             - ./docker/apache/apache2.conf:/etc/apache2/apache2.conf
+            - ./docker/apache/xdebug.ini:/etc/php/8.3/apache2/conf.d/xdebug.ini
             - ./docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
             - ./docker/apache/logs:/var/www/logs
         environment:
             - ENABLE_XDEBUG=1
+            - TZ=America/Sao_Paulo
         extra_hosts:
             - "host.docker.internal:host-gateway"
+        networks:
+            - my_network
 
     redis_dev:
         image: "redis:alpine"
@@ -34,4 +38,8 @@ services:
             - ./mysql_data:/var/lib/mysql
         ports:
             - "3306:3306"
+        networks:
+            - my_network
 
+networks:
+    my_network:
