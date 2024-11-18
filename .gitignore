@@ -1,4 +1,7 @@
 mysql_data/*
+!app
 app/*
+!app/PONHA OS_PROJETOS_AQUI.txt
 !docker/apache/logs
 docker/apache/logs/*
+!.vscode
