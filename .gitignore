@@ -5,3 +5,4 @@ app/*
 !docker/apache/logs
 docker/apache/logs/*
 !.vscode
+.DS_Store
