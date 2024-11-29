@@ -4,7 +4,7 @@ services:
             context: .
             dockerfile: docker/Dockerfile
         image: application
-        container_name: application_dev
+        container_name: apache
         tty: true
         ports:
             - "80:80"
@@ -24,10 +24,12 @@ services:
 
     redis_dev:
         image: "redis:alpine"
+        container_name: redis
         ports:
             - "6379:6379"
 
     mysql_dev:
+        container_name: mysql
         build: ./docker/mysql
         command: --default-authentication-plugin=mysql_native_password
         environment:
@@ -42,8 +44,8 @@ services:
             - my_network
 
     phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: pma
+        image: phpmyadmin:fpm-alpine
+        container_name: phpmyadmin
         links:
             - mysql_dev
         environment:
