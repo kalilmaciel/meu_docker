@@ -44,7 +44,7 @@ services:
             - my_network
 
     phpmyadmin:
-        image: phpmyadmin:fpm-alpine
+        image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
         links:
             - mysql_dev
