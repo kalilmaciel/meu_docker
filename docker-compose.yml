@@ -41,5 +41,18 @@ services:
         networks:
             - my_network
 
+..    phpmyadmin:
+        image: phpmyadmin:5.2.1
+        platform: linux/arm64/v8
+        container_name: phpmyadmin
+        environment:
+            - PMA_HOST=mysql_dev
+            - PMA_PORT=3306
+            - MYSQL_ROOT_PASSWORD=root
+        ports:
+            - "8081:80"
+        networks:
+            - my_network
+
 networks:
     my_network:
