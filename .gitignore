@@ -6,3 +6,4 @@ app/*
 docker/apache/logs/*
 !.vscode
 .DS_Store
+.DS_Store
