@@ -41,7 +41,7 @@ services:
         networks:
             - my_network
 
-..    phpmyadmin:
+    phpmyadmin:
         image: phpmyadmin:5.2.1
         platform: linux/arm64/v8
         container_name: phpmyadmin
