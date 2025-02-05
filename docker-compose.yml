@@ -44,21 +44,6 @@ services:
             - my_network
 
     phpmyadmin_dev:
-        image: phpmyadmin/phpmyadmin
-        container_name: phpmyadmin
-        links:
-            - mysql_dev
-        environment:
-            PMA_HOST: mysql_dev
-            PMA_PORT: 3306
-            PMA_ARBITRARY: 1
-        restart: always
-        ports:
-            - 8081:80
-        networks:
-            - my_network
-
-    phpmyadmin:
         image: phpmyadmin:5.2.1
         platform: linux/arm64/v8
         container_name: phpmyadmin
