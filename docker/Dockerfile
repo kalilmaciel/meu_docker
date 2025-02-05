@@ -16,7 +16,7 @@ php8.4-mysqlnd php8.4-gd php8.4-opcache php8.4-zip \
 php8.4-intl php8.4-common php8.4-bcmath php8.4-imagick \
 php8.4-xmlrpc php8.4-readline php8.4-memcached php8.4-redis \
 php8.4-mbstring php8.4-apcu php8.4-xml php8.4-dom php8.4-memcache \
-php8.4-xmlwriter php8.4-bz2 php8.4-mysqli php-xdebug
+php8.4-xmlwriter php8.4-bz2 php8.4-my php8.4-sqlite3 php-xdebug
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
