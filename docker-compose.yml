@@ -37,7 +37,7 @@ services:
             - MYSQL_USER=admin
             - MYSQL_PASSWORD=servidor
         volumes:
-            - ./mysql_data:/var/lib/mysql
+            - ./mysql_data:/var/lib/mysql:rw
         ports:
             - "3306:3306"
         networks:
