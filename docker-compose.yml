@@ -28,16 +28,17 @@ services:
         ports:
             - "6379:6379"
 
-    mysql_dev:
-        container_name: mysql
-        build: ./docker/mysql
+    mariadb_dev:
+        container_name: mariadb
+        # build: ./docker/mysql
+        image: mariadb:latest
         command: --default-authentication-plugin=mysql_native_password
         environment:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_USER=admin
             - MYSQL_PASSWORD=servidor
-        volumes:
-            - ./mysql_data:/var/lib/mysql:rw
+        # volumes:
+        #     - ./mysql_data:/var/lib/mysql:rw
         ports:
             - "3306:3306"
         networks:
@@ -47,7 +48,7 @@ services:
         image: phpmyadmin:5.2.2
         container_name: phpmyadmin
         environment:
-            - PMA_HOST=mysql_dev
+            - PMA_HOST=mariadb_dev
             - PMA_PORT=3306
             - MYSQL_ROOT_PASSWORD=root
         ports:
