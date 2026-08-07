@@ -1,17 +1,16 @@
 services:
-    application_dev:
+    servidor_dev:
         build:
             context: .
             dockerfile: docker/Dockerfile
-        image: application
-        container_name: apache
+        container_name: servidor
         tty: true
         ports:
-            - "80:80"
+            - "8080:80"
         volumes:
             - ./app:/var/www
             - ./docker/apache/apache2.conf:/etc/apache2/apache2.conf
-            - ./docker/apache/xdebug.ini:/etc/php/8.4/apache2/conf.d/xdebug.ini
+            - ./docker/apache/xdebug.ini:/etc/php/8.5/apache2/conf.d/xdebug.ini
             - ./docker/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
             - ./docker/apache/logs:/var/www/logs
         environment:
@@ -45,7 +44,7 @@ services:
             - my_network
 
     phpmyadmin_dev:
-        image: phpmyadmin:5.2.2
+        image: phpmyadmin:5.2.3
         container_name: phpmyadmin
         environment:
             - PMA_HOST=mariadb_dev
