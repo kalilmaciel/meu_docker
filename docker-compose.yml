@@ -36,8 +36,8 @@ services:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_USER=admin
             - MYSQL_PASSWORD=servidor
-        # volumes:
-        #     - ./mysql_data:/var/lib/mysql:rw
+        volumes:
+             - ./mysql_data:/var/lib/mysql:rw
         ports:
             - "3306:3306"
         networks:
@@ -49,11 +49,25 @@ services:
         environment:
             - PMA_HOST=mariadb_dev
             - PMA_PORT=3306
-            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_ROOT_PASSWORD=root        
         ports:
             - "8081:80"
         networks:
             - my_network
+    
+    postgres_dev:
+        image: postgres:18-alpine
+        container_name: postgres
+        environment:
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=servidor
+            - POSTGRES_DB=postgres_db
+        ports:
+            - "5432:5432"
+        networks:
+            - my_network
+        volumes:
+          - ./postgres_data:/var/lib/postgresql:rw
 
 networks:
     my_network:

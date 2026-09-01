@@ -1,4 +1,5 @@
 mysql_data/*
+postgres_data/*
 !app
 app/*
 !app/PONHA OS_PROJETOS_AQUI.txt
@@ -6,4 +7,4 @@ app/*
 docker/apache/logs/*
 !.vscode
 .DS_Store
-.DS_Store
+
